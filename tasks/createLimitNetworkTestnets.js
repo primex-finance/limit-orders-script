@@ -70,6 +70,10 @@ module.exports = async function (
 
   let tx;
 
+
+  tx = await depositToken.approve(limitOrderManager.address, MaxUint256);
+  await tx.wait();
+
   const depositDecimals = await depositToken.decimals();
 
   depositAmount = parseUnits(depositAmount, depositDecimals);
